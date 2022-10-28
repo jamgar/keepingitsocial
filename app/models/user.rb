@@ -4,5 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :page, dependent: :destroy
+
   validates :username, uniqueness: true
+
+  after_create do
+    create_page
+  end
 end

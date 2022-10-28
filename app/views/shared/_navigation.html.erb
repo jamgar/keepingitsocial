@@ -9,7 +9,7 @@
         <li><a>Item 2</a></li>
       </ul>
     </div>
-    <%= link_to "KeepingItSocial", root_path, class: "btn btn-ghost normal-case text-xl" %>
+    <%= link_to "Keeping It Social", root_path, class: "btn btn-ghost normal-case text-xl" %>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal p-0">
@@ -20,7 +20,7 @@
   <div class="navbar-end">
     <% if user_signed_in? %>
       <div class="mr-4 badge badge-primary">
-        Username goes here
+        <%= current_user.username.capitalize || current_user.email %>
       </div>
       <%= button_to "Log out", destroy_user_session_path , method: :delete, data: { turbo: "false" }, class: "btn btn-outline mr-3" %>
     <% else %>

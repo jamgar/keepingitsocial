@@ -1,0 +1,14 @@
+<div class="flex h-screen bg-gray-100">
+  <div class="w-full border-r border-gray-300 p-4 mr-auto">
+    <%= link_to "Link", new_page_element_path(@page, element_type: "link"), data: { "turbo-stream": true } , class: "btn btn-outline" %>
+    <%= turbo_frame_tag "elements-list" do %>
+      <% @page.elements.order(position: :asc).each do |element| %>
+        <%= render "elements/#{element.element_type}", element: element %>
+      <% end %>
+    <% end %>
+    <%= turbo_frame_tag "new-element" %>
+  </div>
+  <div id="preview" class="p-8">
+    <%= render "preview" %>
+  </div>
+</div>
