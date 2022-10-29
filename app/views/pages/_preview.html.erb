@@ -1,5 +1,12 @@
 <%= turbo_frame_tag "preview_#{dom_id(@page)}" do %>
   <div class="artboard phone-1 bg-white rounded-3xl border border-gray-800 border-8">
-    <%= current_user.username %>
+    <div class="m-6 text-center overflow-y-auto">
+      <%= current_user.username %>
+      <%= turbo_frame_tag "preview-elements" do %>
+        <% @page.elements.order(position: :asc).each do |element| %>
+          <%= render "pages/elements/#{element.element_type}", element: element %>
+        <% end %>
+      <% end %>
   </div>
 <% end %>
+

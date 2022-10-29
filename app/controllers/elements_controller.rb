@@ -21,9 +21,26 @@ class ElementsController < ApplicationController
     end
   end
 
-  def update; end
+  def update
+    respond_to do |format|
+      if @element.update(element_params)
+        format.turbo_stream
+        format.html do
+          redirect edit_page_path(@page), notice: "#{@element.element_type.capitalize} was successfully updated."
+        end
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
 
-  def destroy; end
+  def destroy
+    @element.destroy
+
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
 
   private
 

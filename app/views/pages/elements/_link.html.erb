@@ -1,0 +1,5 @@
+<%= turbo_frame_tag "preview-#{dom_id(element)}" do %>
+    <%= link_to element.url, target: "_blank", class: "btn btn-outline rounded-3xl w-full mt-2" do %>
+      <p><%= element.title %></p> 
+    <% end %>
+<% end %>

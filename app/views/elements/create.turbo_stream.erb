@@ -1,1 +1,3 @@
 <%= turbo_stream.append "elements-list", partial: "elements/#{@element.element_type}", locals: { element: @element } %>
+<%= turbo_stream.append "preview-elements", partial: "pages/elements/#{@element.element_type}", locals: { element: @element } %>
+<%= turbo_stream.update "new-element" %>
