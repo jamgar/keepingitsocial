@@ -12,10 +12,7 @@
 
   <body>
     <%= render 'shared/navigation' %>
-    <% if notice || alert %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+    <%= render 'shared/message' %>
      <%= yield %>
   </body>
 </html>

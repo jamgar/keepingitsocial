@@ -4,5 +4,5 @@
 
 import { application } from "./application"
 
-import IconController from "./icon_controller"
-application.register("icon", IconController)
+import DragController from "./drag_controller"
+application.register("drag", DragController)

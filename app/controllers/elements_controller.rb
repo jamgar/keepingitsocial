@@ -1,6 +1,6 @@
 class ElementsController < ApplicationController
   before_action :set_page
-  before_action :set_element, only: %i[edit update destroy]
+  before_action :set_element, only: %i[edit update destroy move]
 
   def new
     @element = @page.elements.build(element_type: params[:element_type])
@@ -10,7 +10,7 @@ class ElementsController < ApplicationController
 
   def create
     @element = @page.elements.build(element_params)
-    @element.position = 1 + (@page.elements.maximum(:position) || 0)
+    # @element.position = 1 + (@page.elements.maximum(:position) || 0)
 
     respond_to do |format|
       if @element.save
@@ -37,6 +37,13 @@ class ElementsController < ApplicationController
   def destroy
     @element.destroy
 
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
+  def move
+    @element.insert_at(params[:position].to_i)
     respond_to do |format|
       format.turbo_stream
     end

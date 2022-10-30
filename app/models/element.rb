@@ -1,7 +1,5 @@
 class Element < ApplicationRecord
-  belongs_to :page
+  acts_as_list
 
-  def by_position
-    order(position: :asc)
-  end
+  belongs_to :page
 end
