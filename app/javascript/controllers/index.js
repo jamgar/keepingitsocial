@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import DragController from "./drag_controller"
 application.register("drag", DragController)
+
+import TwitterController from "./twitter_controller"
+application.register("twitter", TwitterController)

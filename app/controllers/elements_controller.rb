@@ -1,4 +1,5 @@
 class ElementsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_page
   before_action :set_element, only: %i[edit update destroy move]
 
