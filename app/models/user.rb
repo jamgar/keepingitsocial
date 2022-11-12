@@ -5,10 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :page, dependent: :destroy
+  has_one :profile, dependent: :destroy
 
   validates :username, uniqueness: true
 
   after_create do
     create_page
+    create_profile
   end
 end

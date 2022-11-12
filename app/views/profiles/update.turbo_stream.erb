@@ -1,0 +1,3 @@
+<%= turbo_stream.update dom_id(@profile), partial: "profiles/profile", locals: { profile: @profile } %>
+<%= turbo_stream.update "preview-#{dom_id(@profile)}", partial: "pages/elements/profile", locals: { profile: @profile } %>
+

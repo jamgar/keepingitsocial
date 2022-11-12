@@ -1,6 +1,8 @@
 <div class="flex bg-gray-100">
   <div class="overflow-y-auto h-screen w-full border-r border-gray-300 pt-20 px-4 mr-auto">
     <%= link_to "Link", new_page_element_path(@page, element_type: "link"), data: { turbo_frame: "new-element" } , class: "btn btn-outline" %>
+    <%= render "profiles/profile", profile: @page.user.profile %>
+    <div class="divider"></div>
     <%= turbo_frame_tag "elements-list", data: { controller: "drag", drag_url_value: "/pages/#{@page.id}/elements/:id/move" } do %>
       <% @page.elements.order(position: :asc).each do |element| %>
         <div data-id="<%= element.id %>">

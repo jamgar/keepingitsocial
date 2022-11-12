@@ -1,0 +1,14 @@
+<div class="text-center">
+  <div>
+    <% if profile.avatar.attached? %>
+      <div class="avatar my-4">
+        <div class="w-24 rounded">
+          <%= image_tag url_for(profile.avatar) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <p class="font-bold"><%= profile.display_name %></p>
+  <p><%= profile.bio %></p>
+</div>
+<div class="divider"></div>

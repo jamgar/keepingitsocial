@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :profiles, only: %i[edit update]
+
   get ':id', to: 'users#show'
 
   root 'static_pages#home'
