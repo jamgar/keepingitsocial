@@ -1,1 +1,10 @@
-Hi am user <%= @user.username %>
+  <div class="max-w-lg py-20 mx-auto">
+    <div class="m-6 text-center">
+      <%= render "pages/elements/profile", profile: @user.profile %>
+      <% @user.page.elements.order(position: :asc).each do |element| %>
+        <%= render "pages/elements/#{element.element_type}", element: element %>
+      <% end %>
+      <div class="mt-4" data-controller="twitter" data-handle="jamgar2020">
+        <div class="h-96" data-twitter-target="link"></div>
+      </div>
+  </div>

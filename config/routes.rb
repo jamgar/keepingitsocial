@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :pages, only: %i[show edit] do
+  resources :pages, only: %i[edit] do
     resources :elements, except: %i[index] do
       member do
         patch :move
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: %i[edit update]
 
-  get ':id', to: 'users#show'
+  get ':id', to: 'users#show', as: 'username'
 
   root 'static_pages#home'
 end
