@@ -4,7 +4,4 @@
       <% @user.page.elements.order(position: :asc).each do |element| %>
         <%= render "pages/elements/#{element.element_type}", element: element %>
       <% end %>
-      <div class="mt-4" data-controller="twitter" data-handle="jamgar2020">
-        <div class="h-96" data-twitter-target="link"></div>
-      </div>
   </div>

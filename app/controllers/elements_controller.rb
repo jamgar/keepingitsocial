@@ -65,6 +65,7 @@ class ElementsController < ApplicationController
       :element_type,
       :title,
       :url,
+      :twitter_handle,
       :position,
       :page_id
     )

@@ -1,0 +1,16 @@
+<div class="card w-full bg-base-100 shadow mt-2">
+  <div class="card-body">
+    <%= form_with(model: [page, element]) do |form| %>
+      <%= form.hidden_field :element_type, value: 'twitter' %>
+      <div>
+        <%= form.label "What is your Twitter Username", class: "label" %>
+        <%= form.text_field :twitter_handle, class: "input input-bordered w-full max-w-xs", placeholder: "Enter title"  %>
+      </div>
+      <div class="card-actions justify-end">
+        <%= link_to "Cancel", edit_page_path(page), class: "btn btn-outline mr-2" %>
+        <%= form.submit "Save", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
