@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "preview-#{dom_id(element)}" do %>
   <div class="mt-4" data-controller="twitter" data-handle=<%= element.twitter_handle %>>
-    <div class="h-96" data-twitter-target="link"></div>
+    <div class="h-80" data-twitter-target="link"></div>
   </div>
 <% end %>
 
