@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: keepingitsocial_production
   username: keepingitsocial
   password: <%= ENV["KEEPINGITSOCIAL_DATABASE_PASSWORD"] %>
