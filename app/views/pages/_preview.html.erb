@@ -8,14 +8,14 @@
       </svg>
     </button>
   </div>
-  <div class="artboard phone-1 bg-white rounded-3xl border border-gray-800 border-8 overflow-y-auto">
+  <div class="artboard phone-1 rounded-3xl border border-gray-800 border-8 overflow-y-auto" style="background-color:<%= background_color(@page.theme.background_color) %>">
     <div class="m-6 text-center">
       <%= turbo_frame_tag "preview-#{dom_id(@page.user.profile)}" do %>
-        <%= render "pages/elements/profile", profile: @page.user.profile %>
+        <%= render "pages/elements/profile", profile: @page.user.profile, page: @page %>
       <% end %>
       <%= turbo_frame_tag "preview-elements" do %>
         <% @page.elements.order(position: :asc).each do |element| %>
-          <%= render "pages/elements/#{element.element_type}", element: element %>
+          <%= render "pages/elements/#{element.element_type}", element: element, page: @page %>
         <% end %>
       <% end %>
   </div>

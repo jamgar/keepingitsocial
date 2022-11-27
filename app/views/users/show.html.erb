@@ -2,6 +2,6 @@
     <div class="m-6 text-center">
       <%= render "pages/elements/profile", profile: @user.profile %>
       <% @user.page.elements.order(position: :asc).each do |element| %>
-        <%= render "pages/elements/#{element.element_type}", element: element %>
+        <%= render "pages/elements/#{element.element_type}", element: element, page: @user.page %>
       <% end %>
   </div>

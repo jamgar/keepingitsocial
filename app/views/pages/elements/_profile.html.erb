@@ -8,7 +8,7 @@
       </div>
     <% end %>
   </div>
-  <p class="font-bold"><%= profile.display_name %></p>
-  <p><%= profile.bio %></p>
+  <p class="font-bold" style="color:<%= text_color(page.theme.text_color) %>"><%= profile.display_name %></p>
+  <p style="color:<%= text_color(page.theme.text_color) %>"><%= profile.bio %></p>
 </div>
 <div class="divider"></div>

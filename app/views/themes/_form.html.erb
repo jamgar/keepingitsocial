@@ -1,0 +1,19 @@
+<div class="pt-20 px-10 w-1/2">
+  <%= form_with(model: theme, url: theme_path(theme, page_id: theme.page_id)) do |form| %>
+    <div>
+      <%= form.label :background_color, class: "label" %>
+      <%= form.color_field :background_color, class: "input input-bordered w-full max-w-xs" %>
+    </div>
+    <div>
+      <%= form.label :button_color, class: "label" %>
+      <%= form.color_field :button_color, class: "input input-bordered w-full max-w-xs" %>
+    </div>
+    <div>
+      <%= form.label :text_color, class: "label" %>
+      <%= form.color_field :text_color, class: "input input-bordered w-full max-w-xs" %>
+    </div>
+    <div class="card-actions mt-2">
+      <%= form.submit "Save", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

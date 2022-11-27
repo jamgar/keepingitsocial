@@ -1,5 +1,6 @@
 class Page < ApplicationRecord
   belongs_to :user
 
-  has_many :elements
+  has_one :theme, dependent: :destroy
+  has_many :elements, dependent: :destroy
 end

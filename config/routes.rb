@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: %i[edit update]
+  resources :themes, only: %i[edit update]
 
   get ':id', to: 'users#show', as: 'username'
 

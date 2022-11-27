@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html data-theme="light">
+  <head>
+    <title>Keepingitsocial</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+
+  <body style="background-color:<%= background_color(@user.page.theme.background_color) %>">
+     <%= yield %>
+     <div class="w-full text-center">  
+      <%= link_to "Keeping It Social", root_path, class: "btn btn-ghost normal-case text-xl" %>
+     </div>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </body>
+</html>
+

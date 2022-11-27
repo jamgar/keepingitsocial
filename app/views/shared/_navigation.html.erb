@@ -1,31 +1,37 @@
 <div class="fixed navbar bg-base-100 z-50">
   <div class="navbar-start">
+    <% if user_signed_in? %>
     <div class="dropdown">
       <label tabindex="0" class="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
-      <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a>Item 1</a></li>
-        <li><a>Item 2</a></li>
-      </ul>
+      <% if user_signed_in? %>
+        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+          <li><%= link_to "Page", edit_page_path(current_user.page) %></li>
+          <li><%= link_to "Theme", edit_theme_path(current_user.page.theme, page_id: current_user.page.id) %></li>
+        </ul>
+      <% end %>
     </div>
-    <%= link_to "Keeping It Social", root_path, class: "btn btn-ghost normal-case text-xl" %>
+    <% end %>
+    <%= link_to "Keeping It Social", root_path, class: "btn btn-xs btn-ghost sm:btn-md font-bold" %>
   </div>
   <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal p-0">
-      <li><a>Item 1</a></li>
-      <li><a>Item 2</a></li>
-    </ul>
+    <% if user_signed_in? %>
+      <ul class="menu menu-horizontal p-0">
+        <li><%= link_to "Page", edit_page_path(current_user.page) %></li>
+        <li><%= link_to "Theme", edit_theme_path(current_user.page.theme, page_id: current_user.page.id) %></li>
+      </ul>
+    <% end %>
   </div>
   <div class="navbar-end">
     <% if user_signed_in? %>
       <div class="mr-4 badge badge-primary">
         <%= current_user.username.capitalize || current_user.email %>
       </div>
-      <%= button_to "Log out", destroy_user_session_path , method: :delete, data: { turbo: "false" }, class: "btn btn-outline mr-3" %>
+      <%= button_to "Log out", destroy_user_session_path , method: :delete, data: { turbo: "false" }, class: "btn btn-xs btn-outline sm:btn-md mr-3" %>
     <% else %>
-      <%= link_to "Log in", new_user_session_path, class: "btn btn-outline mr-3" %>
-      <%= link_to "Get Started", new_user_registration_path, class: "btn" %>
+      <%= link_to "Log in", new_user_session_path, class: "btn btn-xs btn-outline sm:btn-md mr-3" %>
+      <%= link_to "Get Started", new_user_registration_path, class: "btn btn-xs sm:btn-md" %>
     <% end %>
   </div>
 </div>
