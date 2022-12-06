@@ -14,12 +14,14 @@
           <div>
             <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Social contacts in one place with <span class="text-primary">Keeping it Social</span>.</h1>
             <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Make it easy to connect with your audience.</p>
-            <div class="mt-6 text-center">
-              <a href="#" class="rounded-lg btn px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:ring-indigo-700">
-                Get started
-                <span class="text-white" aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
+            <% if !user_signed_in? %>
+              <div class="mt-6 text-center">
+                <a href="#" class="rounded-lg btn px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:ring-indigo-700">
+                  Get started
+                  <span class="text-white" aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
