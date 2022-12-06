@@ -16,10 +16,10 @@
             <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Make it easy to connect with your audience.</p>
             <% if !user_signed_in? %>
               <div class="mt-6 text-center">
-                <a href="#" class="rounded-lg btn px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:ring-indigo-700">
+                <%= link_to new_user_registration_path, class: "rounded-lg btn px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:ring-indigo-700" do %>
                   Get started
                   <span class="text-white" aria-hidden="true">&rarr;</span>
-                </a>
+                  <% end %>
               </div>
             <% end %>
           </div>
