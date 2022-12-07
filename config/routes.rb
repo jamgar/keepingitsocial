@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :profiles, only: %i[edit update]
   resources :themes, only: %i[edit update]
 
+  post 'flash', to: 'flash#dismiss'
   get ':id', to: 'users#show', as: 'username'
 
   root 'static_pages#home'

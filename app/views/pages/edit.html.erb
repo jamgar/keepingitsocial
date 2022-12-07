@@ -7,9 +7,7 @@
     <div class="divider"></div>
     <%= turbo_frame_tag "elements-list", data: { controller: "drag", drag_url_value: "/pages/#{@page.id}/elements/:id/move" } do %>
       <% @page.elements.order(position: :asc).each do |element| %>
-        <div data-id="<%= element.id %>">
-          <%= render "elements/#{element.element_type}", element: element %>
-        </div>
+        <%= render "elements/#{element.element_type}", element: element %>
       <% end %>
     <% end %>
     <%= turbo_frame_tag "new-element" %>

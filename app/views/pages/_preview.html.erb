@@ -8,7 +8,7 @@
       </svg>
     </button>
   </div>
-  <div class="artboard phone-1 rounded-3xl border border-gray-800 border-8 overflow-y-auto" style="background-color:<%= background_color(@page.theme.background_color) %>">
+  <div class="artboard phone-1 rounded-3xl border border-gray-800 overflow-y-auto" style="background-color:<%= background_color(@page.theme.background_color) %>">
     <div class="m-6 text-center">
       <%= turbo_frame_tag "preview-#{dom_id(@page.user.profile)}" do %>
         <%= render "pages/elements/profile", profile: @page.user.profile, page: @page %>

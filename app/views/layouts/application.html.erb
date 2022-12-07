@@ -12,7 +12,9 @@
 
   <body>
     <%= render 'shared/navigation' %>
-    <%= render 'shared/message' %>
+    <div id="flash-messages">
+      <%= render 'shared/message' %>
+    </div>
      <%= yield %>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </body>
