@@ -1,4 +1,5 @@
 module PagesHelper
+
   def background_color(bg_color = "#FFFFFF")
     bg_color
   end
